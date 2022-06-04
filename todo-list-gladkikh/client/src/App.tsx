@@ -1,17 +1,15 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import { observer } from 'mobx-react-lite'
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import { Button } from "@material-ui/core";
 
 import { Context } from '.';
 import LoginForm from './components/LoginForm';
 
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import './App.css';
-import { Button } from '@mui/material';
-
-
 
 function App() {
   const { store } = useContext(Context);
@@ -33,7 +31,6 @@ function App() {
       <LoginForm />
     )
   }
-  console.log(localStorage.getItem('user'))
 
   return (
     <div>
@@ -61,7 +58,7 @@ function App() {
         variant="dense"
         sx={{ justifyContent: 'space-between', overflowX: 'auto' }}
       >
-      </Toolbar>      
+      </Toolbar>
     </div>
   );
 }
