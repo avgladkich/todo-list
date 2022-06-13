@@ -85,6 +85,15 @@ function App() {
     if (localStorage.getItem('token')) {
       store.checkAuth();
     }
+    fetch('https://sfedu-document-service.herokuapp.com/document-service')
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        <TodosMap
+        list={data}
+      />
+      });
   }, []);
 
   if (store.isLoading){
@@ -113,7 +122,7 @@ function App() {
           noWrap
           sx={{ flex: 1 }}
         >
-         { `Добро пожаловать ${ store.user.email  }` }
+         { `Вы вошли как ${ store.user.email  }` }
         </Typography>
         <Button variant="outlined" size="small" onClick={ () => store.logout() }>
           <ExitToAppIcon/>
